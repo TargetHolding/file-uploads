@@ -26,9 +26,9 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $model = new ViewModel([
+        $model = new ViewModel(array(
             'files' => $this->filesService->getFiles()
-        ]);
+        ));
         return $model->setTemplate('index');
     }
 
@@ -37,9 +37,9 @@ class IndexController extends AbstractActionController
         $files = $this->params()->fromFiles('files');
         $code = $this->filesService->persistFiles($files);
 
-        return new JsonModel([
+        return new JsonModel(array(
             'code' => $code
-        ]);
+        ));
     }
 
     public function listAction()
@@ -47,9 +47,9 @@ class IndexController extends AbstractActionController
         /** @var Http\Request $request */
         $request = $this->getRequest();
         if ($request->isXmlHttpRequest()) {
-            $model = new ViewModel([
+            $model = new ViewModel(array(
                 'files' => $this->filesService->getFiles()
-            ]);
+            ));
             $model->setTerminal(true);
             return $model->setTemplate('list');
         } else {

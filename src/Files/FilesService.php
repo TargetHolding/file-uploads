@@ -34,7 +34,7 @@ class FilesService implements FilesServiceInterface, InputFilterAwareInterface
     public function getFiles()
     {
         $iterator = new \DirectoryIterator($this->options->getBasePath());
-        $files = [];
+        $files = array();
         /** @var \SplFileInfo $file */
         foreach ($iterator as $file) {
             $file = $file->getFileInfo();
@@ -65,7 +65,7 @@ class FilesService implements FilesServiceInterface, InputFilterAwareInterface
     {
         foreach ($files as $file) {
             $filter = clone $this->getInputFilter();
-            $filter->setData([FilesInputFilter::FILE => $file]);
+            $filter->setData(array(FilesInputFilter::FILE => $file));
             try {
                 if (! $filter->isValid()) {
                     return self::CODE_ERROR;

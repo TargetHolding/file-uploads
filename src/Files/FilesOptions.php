@@ -21,7 +21,7 @@ class FilesOptions extends AbstractOptions
      */
     protected $maxSize = '1536MB';
 
-    public function __construct(array $options = [])
+    public function __construct(array $options = array())
     {
         $this->basePath = __DIR__ . '/../files';
         parent::__construct($options);

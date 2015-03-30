@@ -13,10 +13,10 @@ ini_set('upload_max_filesize', '1536M');
 ini_set('memory_limit', '1536M');
 
 // Run the application!
-$app = Zend\Mvc\Application::init([
-    'modules' => [
+$app = Zend\Mvc\Application::init(array(
+    'modules' => array(
         'Acelaya'
-    ],
-    'module_listener_options' => []
-]);
+    ),
+    'module_listener_options' => array()
+));
 $app->run();

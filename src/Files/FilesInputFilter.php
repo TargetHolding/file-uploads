@@ -18,12 +18,12 @@ class FilesInputFilter extends InputFilter
     public function __construct(FilesOptions $options)
     {
         $input = new FileInput(self::FILE);
-        $input->getValidatorChain()->attach(new Size(['max' => $options->getMaxSize()]));
-        $input->getFilterChain()->attach(new RenameUpload([
+        $input->getValidatorChain()->attach(new Size(array('max' => $options->getMaxSize())));
+        $input->getFilterChain()->attach(new RenameUpload(array(
             'overwrite'         => false,
             'use_upload_name'   => true,
             'target'            => $options->getBasePath()
-        ]));
+        )));
 
         $this->add($input);
     }
